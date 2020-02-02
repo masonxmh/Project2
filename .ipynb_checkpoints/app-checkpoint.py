@@ -44,9 +44,16 @@ def index():
 def summary():
     """Return a list of sample names."""
 
-    # Use Pandas to Perform SQL Query
-    stmt = db.session.query(Samples).statement
-    df = pd.read_sql_query(stmt, db.session.bind)
+    summary_result = session.query(Summary.Count, Summary.Total).all()
+    session.close()
 
     # Return a List of Column Names (Sample Names)
-    return jsonify(list(df.columns)[2:])
+    return jsonify(summary_result)
+
+
+
+
+
+
+if __name__ == '__main__':
+    app.run(debug=True)

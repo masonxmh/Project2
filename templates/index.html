@@ -7,10 +7,14 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Landing Page</title>
   <!-- Bring in our bootstrap stylesheet -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="static/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="static/js/bootstrap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="style.css">
+
+
   <!-- Leaflet CSS -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
   integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
@@ -30,16 +34,16 @@
 
 <body>
     <!-- brand and toggle navbar -->
-    <nav class="navbar navbar-expand-lg sticky-top static-top navbar-light bg-white navbar-custom">
-        <strong><a class="navbar-brand" href="index.html">Lattitude</a></strong>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <strong><a class="navbar-brand" href="index.html">Wuhan Coronavirus Situation Dashboard</a></strong>
         <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" 
-        data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" 
+        data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" 
         aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
 
-        <div class="collapse navbar-collapse" id="navbarText">
-            <ul class="nav navbar-nav ml-auto">
+        <div class="collapse navbar-collapse" id="navbarColor01">
+            <ul class="navbar-nav ml-auto">
                     <!-- dropdown navibar -->
                     <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" 
@@ -52,7 +56,7 @@
                         </div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="comparison.html">Comparison</a>
+                        <a class="nav-link" href="comparison.html">Historical Data</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="data.html">Data</a>
@@ -65,8 +69,46 @@
     <div class="container">
         <div class="row top-buffer">
     <!--Normally these medium columns go full wide on small screen sizes-->
+            <!-- <div class="row row-cols-1 row-cols-md-4"> -->
+            <div class="row">
+                <div class = "card-deck"> <!--this is used separate cards-->
+                <div class="col-md-3">
+                    <div class="card text-white bg-primary mb-3" style="min-width: 18rem; max-height:8rem">
+                        <div class="card-header">Total Confirmed</div>
+                        <div class="card-body">
+                        <h4 class="card-title"></h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card text-white bg-danger mb-3" style="min-width: 18rem; max-height:8rem">
+                        <div class="card-header">Total Suspected</div>
+                        <div class="card-body">
+                          <h4 class="card-title"></h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card text-white bg-secondary mb-3" style="min-width: 18rem; max-height:8rem">
+                        <div class="card-header">Total Dead</div>
+                        <div class="card-body">
+                          <h4 class="card-title"></h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card text-white bg-success mb-3" style="min-width: 18rem; max-height:8rem">
+                        <div class="card-header">Total Recovered</div>
+                        <div class="card-body">
+                          <h4 class="card-title"></h4>
+                        </div>
+                    </div>
+                </div>
+            </div> <!--card deck-->
+        </div> <!--row-->
+
         <section class="row">
-            <div class="col-lg-8">
+            <div class="col-lg-9">
                 <div class="content" id="landing-content">
                     <h1 class="header">Summary: Latitude vs. X</h1>
                     <hr class="content-hr">
@@ -84,7 +126,7 @@
                 </div> 
             </div> 
 
-            <div class="col-lg-4">
+            <div class="col-lg-3">
                 <div class="sidebar">
                     <h2 class="sidebar_header">Visualizations</h2>
                     <hr>
