@@ -42,12 +42,12 @@ footer {
   background-color: #333333;
   border-top-style: solid;
   border-top-width: 10px;
-  border-top-color: #78C2AD;
+  border-top-color: #EB6864;
   min-height: 60px;
   /* min-height: 7%; */
   font-family: Arial, Helvetica, sans-serif;
   font-size: 12px;
-  color: #78C2AD;
+  color: white;
   text-align: center;
   position: fixed;
   bottom: 0;
