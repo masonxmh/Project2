@@ -7,14 +7,12 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Landing Page</title>
   <!-- Bring in our bootstrap stylesheet -->
-  <link rel="stylesheet" href="static/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../static/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="static/js/bootstrap.min.js"></script>
+  <script src="../static/js/bootstrap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-  <link rel="stylesheet" href="style.css">
-
-
+  
   <!-- Leaflet CSS -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
   integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
@@ -24,7 +22,7 @@
   integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
   crossorigin=""></script>
   <!-- Our CSS -->
-  <link rel="stylesheet" type="text/css" href="static/css/style.css">
+  <link rel="stylesheet" type="text/css" href="../static/css/style.css">
   <!-- D3 JavaScript -->
   <script src="https://d3js.org/d3.v5.min.js"></script>
   <!-- <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> -->
@@ -66,39 +64,40 @@
     </nav>   
 
 
-    <div class="container">
+    <div class="container-fluid">
         <div class="row top-buffer">
+        </div>  <!-- top buffer -->
     <!--Normally these medium columns go full wide on small screen sizes-->
             <!-- <div class="row row-cols-1 row-cols-md-4"> -->
             <div class="row">
-                <div class = "card-deck"> <!--this is used separate cards-->
-                <div class="col-md-3">
-                    <div class="card text-white bg-primary mb-3" style="min-width: 18rem; max-height:8rem">
-                        <div class="card-header">Total Confirmed</div>
+                <div class = "card-group mx-auto"> <!--card deck is used separate cards/card group make it together-->
+                <div class="col-ms-3">
+                    <div class="card text-white bg-danger mb-3" style="min-width: 25rem; max-height:8rem;">
+                        <div class="card-header" style="font-weight: bold;font-size:18px;">Total Confirmed</div>
                         <div class="card-body">
                         <h4 class="card-title"></h4>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3">
-                    <div class="card text-white bg-danger mb-3" style="min-width: 18rem; max-height:8rem">
-                        <div class="card-header">Total Suspected</div>
+                <div class="col-ms-3">
+                    <div class="card text-white bg-warning mb-3" style="min-width: 25rem; max-height:8rem;">
+                        <div class="card-header" style="font-weight: bold;font-size:18px;">Total Suspected</div>
                         <div class="card-body">
                           <h4 class="card-title"></h4>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3">
-                    <div class="card text-white bg-secondary mb-3" style="min-width: 18rem; max-height:8rem">
-                        <div class="card-header">Total Dead</div>
+                <div class="col-ms-3">
+                    <div class="card text-white bg-secondary mb-3" style="min-width: 25rem; max-height:8rem;">
+                        <div class="card-header" style="font-weight: bold;font-size:18px;">Total Dead</div>
                         <div class="card-body">
                           <h4 class="card-title"></h4>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3">
-                    <div class="card text-white bg-success mb-3" style="min-width: 18rem; max-height:8rem">
-                        <div class="card-header">Total Recovered</div>
+                <div class="col-ms-3">
+                    <div class="card text-white bg-success mb-3" style="min-width: 25rem; max-height:8rem;">
+                        <div class="card-header" style="font-weight: bold;font-size:18px;">Total Recovered</div>
                         <div class="card-body">
                           <h4 class="card-title"></h4>
                         </div>
@@ -106,26 +105,15 @@
                 </div>
             </div> <!--card deck-->
         </div> <!--row-->
+    </div> <!--container-->
 
-        <section class="row">
-            <div class="col-lg-9">
-                <div class="content" id="landing-content">
-                    <h1 class="header">Summary: Latitude vs. X</h1>
-                    <hr class="content-hr">
-                    <img id="landing_image" src="Resources/assets/images/Fig1.png" alt="latittude vs x">
-                    <p>The purpose of this project was to analyze how weather changes as you get closer to the equator.
-                    To accomplish this analysis, we first pulled data from the OpenWeatherMap API to assemble a dataset
-                    on over 500 cities.
-                    </p>
-                    <br>
-                    <p>After assembling the dataset, we use Matplotlib to plot various aspects of the weather vs. latittude.
-                    Factors we looked at included:temperature, cloudiness, windspeed, and humidity. This site provides the
-                    source data and visualizations created as part of the analysis, as welll as explanations and descriptions of
-                    any trends and correlations witnessed.
-                    </p>
-                </div> 
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-9">
+                <div id="map" style="width: 1200px; height: 600px; position:absolute; left:160px;"></div>
             </div> 
-
+        
             <div class="col-lg-3">
                 <div class="sidebar">
                     <h2 class="sidebar_header">Visualizations</h2>
@@ -138,14 +126,19 @@
                     </div>
                 </div>
             </div>
-        </section>
-        </div>  <!-- top buffer -->
+        </div>
     </div>
+    
 
 
  <!-- Footer -->
     <footer>
         <div class="footer navbar-fixed-bottom">&copy; Copyright Binqian Gao, Mohan Xing, Peirang Xu, Vicky Zhang 2020. All Rights Reserved.</div>
+        <script src="../static/js/test.js"></script>
+        <!-- API Key -->
+        <script type="text/javascript" src="../static/js/config.js"></script>
+        <!-- Our JavaScript -->
+        <script type="text/javascript" src="../static/js/logic.js"></script>
     </footer>
 </body>
 </html>
