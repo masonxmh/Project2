@@ -27,13 +27,12 @@ Base = automap_base()
 Base.prepare(engine, reflect=True)
 
 summary = Base.classes.summary
-
+China_realtime = Base.classes.Great_China
 
 # Create our session (link) from Python to the DB
-
+session = Session(engine)
 
 #################################################
-
 
 #################################################
 # Flask Routes
@@ -45,13 +44,47 @@ def home():
 
 @app.route("/test")
 def test():
-    """Return a list of sample names."""
+    """Return a list of summary names and counts."""
 
-    session = Session(engine)
+    
     results = session.query(summary.Count,summary.Total).all()
     session.close()
         
     return jsonify(list(results))
+
+
+@app.route("/map")
+def map():
+    """Return a list of summary names and counts."""
+    # map info
+    sel = [
+        China_realtime.Provinces,
+        China_realtime.confirmedCount,
+        China_realtime.suspectedCount,
+        China_realtime.curedCount,
+        China_realtime.deadCount,
+        China_realtime.country,
+        China_realtime.lat,
+        China_realtime.lng
+    ]
+    results = session.query(*sel).all()
+
+    m = []
+    for x in results:
+        jsonChina = {}
+        jsonChina["Provinces"] = x[0]
+        jsonChina["confirmed"] = x[1]
+        jsonChina["suspected"] = x[2]
+        jsonChina["cured"] = x[3]
+        jsonChina["dead"] = x[4]
+        jsonChina["country"] = x[5]
+        jsonChina["location"] = [x[6],x[7]]
+        m.append(jsonChina)
+        
+        session.close()
+
+    return jsonify(m)
+
 
 
 
