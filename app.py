@@ -43,7 +43,6 @@ def home():
     """Return the homepage."""
     return render_template("index.html")
 
-
 @app.route("/test")
 def test():
     """Return a list of sample names."""
@@ -52,7 +51,12 @@ def test():
     results = session.query(summary.Count,summary.Total).all()
     session.close()
         
-    return jsonify(results)
+    return jsonify(list(results))
+
+
+
+
+
 
 if __name__ == '__main__':
     app.run(debug=True)
