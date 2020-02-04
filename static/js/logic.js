@@ -87,7 +87,7 @@ function createMap(chinaLayer,worldLayer) {
     var myMap = L.map("map", {
         center: [30.58, 114.27],
         zoom: 4,
-        layers: [dark, chinaLayer]
+        layers: [dark, chinaLayer, worldLayer]
         });
 
     L.control

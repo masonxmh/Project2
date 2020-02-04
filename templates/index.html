@@ -72,7 +72,7 @@
             <div class="row">
                 <div class = "card-group mx-auto"> <!--card deck is used separate cards/card group make it together-->
                 <div class="col-ms-3">
-                    <div class="card text-white bg-danger mb-3" style="min-width: 25rem; max-height:8rem;">
+                    <div class="card text-white bg-danger mb-3" style="min-width: 29rem; max-height:8rem;">
                         <div class="card-header" style="font-weight: bold;font-size:18px; text-align: center;">Total Confirmed</div>
                         <div class="card-body" style="text-align:center;">
                         
@@ -80,7 +80,7 @@
                     </div>
                 </div>
                 <div class="col-ms-3">
-                    <div class="card text-white bg-warning mb-3" style="min-width: 25rem; max-height:8rem;">
+                    <div class="card text-white bg-warning mb-3" style="min-width: 29rem; max-height:8rem;">
                         <div class="card-header" style="font-weight: bold;font-size:18px; text-align: center;">Total Suspected</div>
                         <div class="card-body" style="text-align:center;">
                           
@@ -88,7 +88,7 @@
                     </div>
                 </div>
                 <div class="col-ms-3">
-                    <div class="card text-white bg-secondary mb-3" style="min-width: 25rem; max-height:8rem;">
+                    <div class="card text-white bg-secondary mb-3" style="min-width: 29rem; max-height:8rem;">
                         <div class="card-header" style="font-weight: bold;font-size:18px; text-align: center;">Total Dead</div>
                         <div class="card-body" style="text-align:center;">
                           
@@ -96,7 +96,7 @@
                     </div>
                 </div>
                 <div class="col-ms-3">
-                    <div class="card text-white bg-success mb-3" style="min-width: 25rem; max-height:8rem;">
+                    <div class="card text-white bg-success mb-3" style="min-width: 29rem; max-height:8rem;">
                         <div class="card-header" style="font-weight: bold;font-size:18px; text-align: center;">Total Recovered</div>
                         <div class="card-body" style="text-align:center;">
                           
@@ -110,19 +110,37 @@
 
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-9">
-                <div id="map" style="width: 1200px; height: 600px; position:absolute; left:160px;"></div>
+
+            <div class="col-2">
+                <div id="table-area" class="">
+                    <table id = "china-table" class="">
+                        <thead>
+                            <tr>
+                                <th class ="table-head">Provinces</th>
+                                <th class ="table-head">Confirmed</th>
+                                <th class ="table-head">Suspected</th>
+                                <th class ="table-head">Dead</th>
+                                <th class ="table-head">Cured</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="col-7">
+                <div id="map" style="width: 100%; height: 600px;"></div>
             </div> 
         
-            <div class="col-lg-3">
+            <div class="col-3">
                 <div class="sidebar">
                     <h2 class="sidebar_header">Visualizations</h2>
                     <hr>
                     <div class="sidebar-images" id="sidebar-images">
-                        <a href="#"><img class="sidebar-image" id="maxT_figure" src="Resources/assets/images/Fig1.png"  alt="maxTemp"></a>
-                        <a href="#"><img class="sidebar-image" id="humidity_figure" src="Resources/assets/images/Fig2.png"  alt="humidity"></a>
-                        <a href="#"><img class="sidebar-image" id="cloudness_figure" src="Resources/assets/images/Fig3.png"  alt="cloudness" ></a>
-                        <a href="#"><img class="sidebar-image" id="windspeed_figure" src="Resources/assets/images/Fig4.png"  alt="windspeed"></a> 
+                        <a href="#"><img class="sidebar-image" id="maxT_figure" src="#"  alt="maxTemp"></a>
+                        <a href="#"><img class="sidebar-image" id="humidity_figure" src="#"  alt="humidity"></a>
+                        <a href="#"><img class="sidebar-image" id="cloudness_figure" src="#"  alt="cloudness" ></a>
+                        <a href="#"><img class="sidebar-image" id="windspeed_figure" src="#"  alt="windspeed"></a> 
                     </div>
                 </div>
             </div>
