@@ -28,7 +28,7 @@ Base.prepare(engine, reflect=True)
 
 summary = Base.classes.summary
 China_realtime = Base.classes.Great_China
-
+world_realtime = Base.classes.world
 # Create our session (link) from Python to the DB
 session = Session(engine)
 
@@ -54,8 +54,8 @@ def test():
 
 # define China map features
 @app.route("/map/china")
-def map():
-    """Return a list of summary names and counts."""
+def mapc():
+    """Return a list of China situation data"""
     # map info
     sel = [
         China_realtime.Provinces,
@@ -86,6 +86,38 @@ def map():
     return jsonify(list(c))
 
 
+# define country map other than China features
+@app.route("/map/world")
+def mapw():
+    """Return a list of other counties situations data"""
+    # map info
+    sel = [
+        world_realtime.Country,
+        world_realtime.Continent,
+        world_realtime.confirmedCount,
+        world_realtime.suspectedCount,
+        world_realtime.curedCount,
+        world_realtime.deadCount,
+        world_realtime.latitude,
+        world_realtime.longitude
+    ]
+    results = session.query(*sel).all()
+
+    w = []
+    for x in results:
+        jsonWorld = {}
+        jsonWorld["country"] = x[0]
+        jsonWorld["continent"] = x[1]
+        jsonWorld["confirmed"] = x[2]
+        jsonWorld["suspected"] = x[3]
+        jsonWorld["cured"] = x[4]
+        jsonWorld["dead"] = x[5]
+        jsonWorld["location"] = [x[6],x[7]]
+        w.append(jsonWorld)
+        
+        session.close()
+
+    return jsonify(list(w))
 
 
 
