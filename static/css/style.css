@@ -17,14 +17,26 @@ html {
    /* margin: 0; */
 }
 
-.top-buffer { margin-top: 20px; 
+.top-buffer { margin-top: 10px; 
 }
 
 /* map, */
 
 
-/*legned */
+/*Table*/
 
+table {
+  border: 1px solid white;
+  background: #1E1E1E;
+}
+.my-custom-scrollbar {
+  position: relative;
+  height: 800px;
+  /* overflow: auto; */
+  }
+.table-wrapper-scroll-y {
+  display:block;
+  }
 
 /* footer */
 footer {
@@ -32,7 +44,7 @@ footer {
   border-top-style: solid;
   border-top-width: 10px;
   border-top-color: #EB6864;
-  min-height: 60px;
+  min-height: 30px;
   /* min-height: 7%; */
   font-family: Arial, Helvetica, sans-serif;
   font-size: 12px;

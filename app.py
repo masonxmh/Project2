@@ -47,8 +47,15 @@ def home():
 def test():
     """Return a list of summary names and counts."""
     session = Session(engine)
-    
-    results = session.query(summary.Count,summary.Total).all()
+    sel = [
+        
+        summary.confirmedCount,
+        summary.curedCount,
+        summary.deadCount,
+        summary.deadCount
+    ]
+
+    results = session.query(*sel).all()
     session.close()
         
     return jsonify(list(results))
@@ -124,33 +131,33 @@ def mapw():
 
 
 # define China map features
-@app.route("/map/chinatable")
-def table_china():
-    """Return a list of China data"""
+@app.route("/map/worldtable")
+def table_world():
+    """Return a list of world data"""
     session = Session(engine)
     # map info
     sel = [
-        China_realtime.Provinces,
-        China_realtime.confirmedCount,
-        China_realtime.suspectedCount,
-        China_realtime.curedCount,
-        China_realtime.deadCount,
+        world_realtime.Country,
+        world_realtime.confirmedCount,
+        world_realtime.suspectedCount,
+        world_realtime.curedCount,
+        world_realtime.deadCount,
     ]
-    results = session.query(*sel).order_by(China_realtime.confirmedCount.desc()).all()
+    results = session.query(*sel).order_by(world_realtime.confirmedCount.desc()).all()
 
-    tc = []
+    tw = []
     for x in results:
-        tableChina = {}
-        tableChina["Provinces"] = x[0]
-        tableChina["confirmed"] = x[1]
-        tableChina["suspected"] = x[2]
-        tableChina["cured"] = x[3]
-        tableChina["dead"] = x[4]
-        tc.append(tableChina)
+        table = {}
+        table["Provinces"] = x[0]
+        table["confirmed"] = x[1]
+        table["suspected"] = x[2]
+        table["cured"] = x[3]
+        table["dead"] = x[4]
+        tw.append(table)
         
         session.close()
 
-    return jsonify(list(tc))
+    return jsonify(list(tw))
 
 
 if __name__ == '__main__':
