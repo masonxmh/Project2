@@ -1,4 +1,4 @@
-d3.json("/map").then(function(dataChina){
+d3.json("/map/china").then(function(dataChina){
     var circles =[];
     dataChina.forEach(element => {
         // createCircles(element);
@@ -7,13 +7,15 @@ d3.json("/map").then(function(dataChina){
             fillColor: "red",
             fillOpacity:0.75,
             radius: circlesSize(element.confirmed)
-            })
+            }).bindPopup("<h5>"+ "Country: " +element.country + "</h5><hr><h5>"
+                         + "Province: " + element.Provinces + "</h5><hr><h5>"+
+                          "Confirmed: "+element.confirmed+"</h5>")
         );
     })
     var chinaLayer = L.layerGroup(circles);
     createMap(chinaLayer);
 
-
+});//json
     
         
     
@@ -26,7 +28,7 @@ d3.json("/map").then(function(dataChina){
         }else if (confirmed >=100){
             return confirmed*150;
         } else {
-            return confirmed*100;
+            return confirmed*300;
         }
         
     }
@@ -65,7 +67,7 @@ d3.json("/map").then(function(dataChina){
         
         var myMap = L.map("map", {
             center: [30.58, 114.27],
-            zoom: 10,
+            zoom: 4,
             layers: [dark, chinaLayer]
             });
     
@@ -76,7 +78,7 @@ d3.json("/map").then(function(dataChina){
 
     }
 
-});//json
+
 
 
 

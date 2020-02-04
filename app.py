@@ -52,8 +52,8 @@ def test():
         
     return jsonify(list(results))
 
-
-@app.route("/map")
+# define China map features
+@app.route("/map/china")
 def map():
     """Return a list of summary names and counts."""
     # map info
@@ -69,7 +69,7 @@ def map():
     ]
     results = session.query(*sel).all()
 
-    m = []
+    c = []
     for x in results:
         jsonChina = {}
         jsonChina["Provinces"] = x[0]
@@ -79,11 +79,11 @@ def map():
         jsonChina["dead"] = x[4]
         jsonChina["country"] = x[5]
         jsonChina["location"] = [x[6],x[7]]
-        m.append(jsonChina)
+        c.append(jsonChina)
         
         session.close()
 
-    return jsonify(m)
+    return jsonify(list(c))
 
 
 
