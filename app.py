@@ -50,9 +50,9 @@ def test():
     sel = [
         
         summary.confirmedCount,
-        summary.curedCount,
+        summary.suspectedCount,
         summary.deadCount,
-        summary.deadCount
+        summary.curedCount
     ]
 
     results = session.query(*sel).all()

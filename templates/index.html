@@ -70,33 +70,33 @@
     <!--Normally these medium columns go full wide on small screen sizes-->
             <!-- <div class="row row-cols-1 row-cols-md-4"> -->
             <div class="row">
-                <div class = "card-group mx-auto"> <!--card deck is used separate cards/card group make it together-->
-                <div class="col-ms-3">
-                    <div class="card text-white bg-danger mb-3" style="min-width: 29rem; max-height:8rem;">
+                <div class = "card-group w-100"> <!--card deck is used separate cards/card group make it together-->
+                <div class="col">
+                    <div class="card text-white bg-danger mb-4" style="width: 100%; max-height:8rem;">
                         <div class="card-header" style="font-weight: bold;font-size:18px; text-align: center;max-height:3rem;">Total Confirmed</div>
                         <div class="card-body" style="text-align:center;max-height:4rem;">
                         
                         </div>
                     </div>
                 </div>
-                <div class="col-ms-3">
-                    <div class="card text-white bg-warning mb-3" style="min-width: 29rem; max-height:8rem;">
+                <div class="col">
+                    <div class="card text-white bg-warning mb-4" style="width: 100%; max-height:8rem;">
                         <div class="card-header" style="font-weight: bold;font-size:18px; text-align: center;max-height:3rem;">Total Suspected</div>
                         <div class="card-body" style="text-align:center;max-height:4rem;">
                           
                         </div>
                     </div>
                 </div>
-                <div class="col-ms-3">
-                    <div class="card text-white bg-secondary mb-3" style="min-width: 29rem; max-height:8rem;">
+                <div class="col">
+                    <div class="card text-white bg-secondary mb-4" style="width: 100%; max-height:8rem;">
                         <div class="card-header" style="font-weight: bold;font-size:18px; text-align: center;max-height:3rem;">Total Dead</div>
                         <div class="card-body" style="text-align:center;max-height:4rem;">
                           
                         </div>
                     </div>
                 </div>
-                <div class="col-ms-3">
-                    <div class="card text-white bg-success mb-3" style="min-width: 29rem; max-height:8rem;">
+                <div class="col">
+                    <div class="card text-white bg-success mb-4" style="width: 100%; max-height:8rem;">
                         <div class="card-header" style="font-weight: bold;font-size:18px; text-align: center;max-height:3rem;">Total Recovered</div>
                         <div class="card-body" style="text-align:center;max-height:4rem;">
                           
@@ -111,9 +111,9 @@
     <div class="container-fluid">
         <div class="row">
 
-            <div class="col-2">
+            <div class="col-3">
                 <div id="table-area" class="table-wrapper-scroll-y my-custom-scrollbar">
-                    <table id = "world-table" class="" style="margin-left:10px;">
+                    <table id = "world-table" class="" style="margin-left:0px;">
                         <thead class="table-active">
                             <tr style="font-weight: bold;font-size:12px; text-align: center;">
                                 <th class ="table-head">COUNTRY</th>
@@ -128,11 +128,11 @@
                 </div>
             </div>
 
-            <div class="col-7">
-                <div id="map" style="width: 100%; height: 600px; position: absolute; left: 30px;"></div>
+            <div class="col-9">
+                <div id="map" style="width: 100%; height: 600px; position: absolute; "></div>
             </div> 
         
-            <div class="col-3">
+            <!-- <div class="col-3">
                 <div class="sidebar">
                     <h2 class="sidebar_header">Visualizations</h2>
                     <hr>
@@ -143,8 +143,8 @@
                         <a href="#"><img class="sidebar-image" id="windspeed_figure" src="#"  alt="windspeed"></a> 
                     </div>
                 </div>
-            </div>
-        </div>
+            </div> -->
+        </div> <!--row-->
     </div>
     
 
