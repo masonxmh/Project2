@@ -92,7 +92,7 @@ function createMap(chinaLayer,worldLayer) {
 
     L.control
     .layers(baseMaps, overlayMaps,{
-        collapsed: false
+        collapsed: true
     }).addTo(myMap);
 
 }
