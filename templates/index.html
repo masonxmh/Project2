@@ -5,13 +5,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Landing Page</title>
+  <title>Dashboard</title>
   <!-- Bring in our bootstrap stylesheet -->
   <link rel="stylesheet" href="../static/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="../static/js/bootstrap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <!--country flag-->
+
   
   <!-- Leaflet CSS -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
@@ -65,43 +67,34 @@
 
 
     <div class="container-fluid">
-        <div class="row top-buffer">
-        </div>  <!-- top buffer -->
+        <div class="row top-buffer"></div>  <!-- top buffer -->
     <!--Normally these medium columns go full wide on small screen sizes-->
             <!-- <div class="row row-cols-1 row-cols-md-4"> -->
             <div class="row">
-                <div class = "card-group w-100"> <!--card deck is used separate cards/card group make it together-->
-                <div class="col">
-                    <div class="card text-white bg-danger mb-4" style="width: 100%; max-height:8rem;">
-                        <div class="card-header" style="font-weight: bold;font-size:18px; text-align: center;max-height:3rem;">Total Confirmed</div>
-                        <div class="card-body" style="text-align:center;max-height:4rem;">
-                        
+                <div class = "card-group w-100"> <!--card-deck is used separate cards/card group make it together-->
+                    <div class="col">
+                        <div class="card text-white bg-danger">
+                            <div class="card-header" >Total Confirmed</div>
+                            <div class="card-body"></div>
                         </div>
                     </div>
-                </div>
-                <div class="col">
-                    <div class="card text-white bg-warning mb-4" style="width: 100%; max-height:8rem;">
-                        <div class="card-header" style="font-weight: bold;font-size:18px; text-align: center;max-height:3rem;">Total Suspected</div>
-                        <div class="card-body" style="text-align:center;max-height:4rem;">
-                          
+                    <div class="col">
+                        <div class="card text-white bg-warning" >
+                            <div class="card-header" >Total Suspected</div>
+                            <div class="card-body"></div>
                         </div>
                     </div>
-                </div>
-                <div class="col">
-                    <div class="card text-white bg-secondary mb-4" style="width: 100%; max-height:8rem;">
-                        <div class="card-header" style="font-weight: bold;font-size:18px; text-align: center;max-height:3rem;">Total Dead</div>
-                        <div class="card-body" style="text-align:center;max-height:4rem;">
-                          
+                    <div class="col">
+                        <div class="card text-white bg-secondary">
+                            <div class="card-header" >Total Dead</div>
+                            <div class="card-body"></div>
                         </div>
                     </div>
-                </div>
-                <div class="col">
-                    <div class="card text-white bg-success mb-4" style="width: 100%; max-height:8rem;">
-                        <div class="card-header" style="font-weight: bold;font-size:18px; text-align: center;max-height:3rem;">Total Recovered</div>
-                        <div class="card-body" style="text-align:center;max-height:4rem;">
-                          
+                    <div class="col">
+                        <div class="card text-white bg-success">
+                            <div class="card-header">Total Recovered</div>
+                            <div class="card-body"></div>
                         </div>
-                    </div>
                 </div>
             </div> <!--card deck-->
         </div> <!--row-->
@@ -112,26 +105,40 @@
         <div class="row">
 
             <div class="col-3">
-                <div id="table-area" class="" style="max-width: 100%;position: absolute;"> <!--table-wrapper-scroll-y my-custom-scrollbar-->
-                    <table id = "world-table" class="" >
-                        <thead class="table-active">
-                            <tr style="font-weight: bold;font-size:12px; text-align: center;">
-                                <th class ="table-head">COUNTRY</th>
-                                <th class ="table-head">CONFIRMED</th>
-                                <th class ="table-head">SUSPECTED</th>
-                                <th class ="table-head">DEAD</th>
-                                <th class ="table-head">CURED</th>
-                            </tr>
-                        </thead>
-                        <tbody style="text-align: center;"></tbody>
-                    </table>
-                </div>
-            </div>
+                <div list-group-container>
+                    <ul class="nav nav-tabs">
+                        <li class="nav-item">
+                          <a class="nav-link active" data-toggle="tab" href="#world_list">World</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" data-toggle="tab" href="#province_list">Province</a>
+                        </li>
+                    </ul> <!--nav tabs-->
+
+                    <div id="myTabContent" class="tab-content">
+                        <div class="tab-pane fade" id="world_list">
+                                <div class="list-group-world" id="list-group-world"></div>
+                        </div>
+                        
+
+                        <div class="tab-pane fade" id="province_list">
+                            <div class="list-group-province" id="list-group-province">
+                                <p>wo</p>
+                            </div>
+                        </div>
+                    </div>  
+                    
+                </div> <!--list-group-container-->
+            </div> <!--col-3-->
+
+
 
             <div class="col-9">
-                <div id="map" style="width: 100%; height: 600px; position: absolute; "></div>
+                <div class=map-container>
+                    <div id="map"></div>
+                </div>
             </div> 
-        
+            
             <!-- <div class="col-3">
                 <div class="sidebar">
                     <h2 class="sidebar_header">Visualizations</h2>
@@ -163,3 +170,16 @@
 
 
        
+   <!-- <div id="table-area" class="" style="max-width: 100%;position: absolute;">
+       <table id = "world-table" class="" >
+                            <thead class="table-active">
+                                <tr style="font-weight: bold;font-size:12px; text-align: center;">
+                                    <th class ="table-head ">COUNTRY</th>
+                                    <th class ="table-head">CONFIRMED</th>
+                                    <th class ="table-head">SUSPECTED</th>
+                                    <th class ="table-head">DEAD</th>
+                                    <th class ="table-head">CURED</th>
+                                </tr>
+                            </thead>
+                            <tbody style="text-align: center;"></tbody>
+                        </table>

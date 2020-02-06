@@ -2,6 +2,7 @@ d3.json("/map/china").then(function(dataChina){
     d3.json("/map/world").then(function(dataWorld){
     var circles =[];
     var circlesWorld =[];
+    console.log(dataChina);
     dataChina.forEach(element => {
         // createCircles(element);
         circles.push(L.circle(element.location,{
@@ -32,6 +33,10 @@ d3.json("/map/china").then(function(dataChina){
     var worldLayer = L.layerGroup(circlesWorld);
     createMap(chinaLayer,worldLayer);
     console.log(dataWorld);
+
+    ////////////////////////////////side menue////////////////////////////////
+    
+
     });//jsonWorld
 });//jsonChina
     

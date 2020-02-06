@@ -29,6 +29,8 @@ Base.prepare(engine, reflect=True)
 summary = Base.classes.summary
 China_realtime = Base.classes.Great_China
 world_realtime = Base.classes.world
+world_China_realtime = Base.classes.world_China
+
 # table_China_realtime = Base.classes.Great_China
 # Create our session (link) from Python to the DB
 session = Session(engine)
@@ -130,7 +132,7 @@ def mapw():
     return jsonify(list(w))
 
 
-# define China map features
+# define table other than China
 @app.route("/map/worldtable")
 def table_world():
     """Return a list of world data"""
@@ -158,6 +160,42 @@ def table_world():
         session.close()
 
     return jsonify(list(tw))
+
+# define world List (include Great China)
+@app.route("/map/worldlist")
+def table_worldlist():
+    """Return a list of world data"""
+    session = Session(engine)
+    # map info
+    sel = [
+        world_China_realtime.Country,
+        world_China_realtime.Countryshort,
+        world_China_realtime.confirmedCount,
+        world_China_realtime.suspectedCount,
+        world_China_realtime.curedCount,
+        world_China_realtime.deadCount,
+    ]
+    results = session.query(*sel).order_by(world_China_realtime.confirmedCount.desc()).all()
+
+    wcList = []
+    for x in results:
+        table = {}
+        table["country"] = x[0]
+        table["countryShort"] = x[1]
+        table["confirmed"] = x[2]
+        table["suspected"] = x[3]
+        table["cured"] = x[4]
+        table["dead"] = x[5]
+        wcList.append(table)
+        
+        session.close()
+
+    return jsonify(list(wcList))
+
+
+
+
+
 
 
 if __name__ == '__main__':
