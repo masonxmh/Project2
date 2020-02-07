@@ -35,8 +35,7 @@ d3.json("/map/china").then(function(dataChina){
     console.log(dataWorld);
 
     ////////////////////////////////side menue////////////////////////////////
-    
-
+  
     });//jsonWorld
 });//jsonChina
     
@@ -94,6 +93,11 @@ function createMap(chinaLayer,worldLayer) {
         zoom: 4,
         layers: [dark, chinaLayer, worldLayer]
         });
+
+        myMap.on("click", e =>  {
+            console.log(e);
+        })
+    
 
     L.control
     .layers(baseMaps, overlayMaps,{

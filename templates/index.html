@@ -72,25 +72,25 @@
             <!-- <div class="row row-cols-1 row-cols-md-4"> -->
             <div class="row">
                 <div class = "card-group w-100"> <!--card-deck is used separate cards/card group make it together-->
-                    <div class="col">
+                    <div class="col-sm">
                         <div class="card text-white bg-danger">
                             <div class="card-header" >Total Confirmed</div>
                             <div class="card-body"></div>
                         </div>
                     </div>
-                    <div class="col">
+                    <div class="col-sm">
                         <div class="card text-white bg-warning" >
                             <div class="card-header" >Total Suspected</div>
                             <div class="card-body"></div>
                         </div>
                     </div>
-                    <div class="col">
+                    <div class="col-sm">
                         <div class="card text-white bg-secondary">
                             <div class="card-header" >Total Dead</div>
                             <div class="card-body"></div>
                         </div>
                     </div>
-                    <div class="col">
+                    <div class="col-sm">
                         <div class="card text-white bg-success">
                             <div class="card-header">Total Recovered</div>
                             <div class="card-body"></div>
@@ -107,7 +107,7 @@
             <div class="col-3">
                 <div list-group-container>
                     <ul class="nav nav-tabs">
-                        <li class="nav-item">
+                        <li class="nav-item active">
                           <a class="nav-link active" data-toggle="tab" href="#world_list">World</a>
                         </li>
                         <li class="nav-item">
@@ -115,42 +115,50 @@
                         </li>
                     </ul> <!--nav tabs-->
 
-                    <div id="myTabContent" class="tab-content">
-                        <div class="tab-pane fade" id="world_list">
-                                <div class="list-group-world" id="list-group-world"></div>
-                        </div>
-                        
-
-                        <div class="tab-pane fade" id="province_list">
-                            <div class="list-group-province" id="list-group-province">
-                                <p>wo</p>
+                    <div class="scrollbar scrollbar-pink bordered-pink thin">
+                        <div class="force-overflow">
+                      
+                        <div id="myTabContent" class="tab-content">
+                            <div class="tab-pane active" id="world_list">
+                                    <div class="list-group-world" id="list-group-world"></div>
                             </div>
-                        </div>
-                    </div>  
-                    
+                            
+
+                            <div class="tab-pane fade" id="province_list">
+                                <div class="list-group-province" id="list-group-province"></div>
+                            </div>
+                        </div>  
+                    </div>
+                    </div>
                 </div> <!--list-group-container-->
             </div> <!--col-3-->
 
 
 
             <div class="col-9">
-                <div class=map-container>
-                    <div id="map"></div>
-                </div>
-            </div> 
-            
-            <!-- <div class="col-3">
-                <div class="sidebar">
-                    <h2 class="sidebar_header">Visualizations</h2>
-                    <hr>
-                    <div class="sidebar-images" id="sidebar-images">
-                        <a href="#"><img class="sidebar-image" id="maxT_figure" src="#"  alt="maxTemp"></a>
-                        <a href="#"><img class="sidebar-image" id="humidity_figure" src="#"  alt="humidity"></a>
-                        <a href="#"><img class="sidebar-image" id="cloudness_figure" src="#"  alt="cloudness" ></a>
-                        <a href="#"><img class="sidebar-image" id="windspeed_figure" src="#"  alt="windspeed"></a> 
+                <div class="row">
+                    <div class ="col-12">
+                        <div class=map-container>
+                            <div id="map"></div>
+                        </div>
                     </div>
-                </div>
-            </div> -->
+                </div> <!--col-9-row-->
+                <div class=info-container>
+                    <div class="row">
+                        <div class = "card-group w-100">
+                        <div class="col-6">
+                            
+                        </div>
+                        <div class="col-6">
+                            <h1>gird2</h1>
+                        </div>
+                        </div><!--card-->
+                    </div>
+                </div> <!--info container-->
+
+            </div> <!--col-9-->
+            
+         
         </div> <!--row-->
     </div>
     

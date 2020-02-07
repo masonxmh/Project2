@@ -161,7 +161,7 @@ def table_world():
 
     return jsonify(list(tw))
 
-# define world List (include Great China)
+# define world List (include Greater China)
 @app.route("/map/worldlist")
 def table_worldlist():
     """Return a list of world data"""
@@ -193,10 +193,34 @@ def table_worldlist():
     return jsonify(list(wcList))
 
 
+# define world List (Greater China)
+@app.route("/map/greaterChinalist")
+def table_greaterChinalist():
+    """Return a list of greater China data"""
+    session = Session(engine)
+    # map info
+    sel = [
+            China_realtime.Provinces,
+            China_realtime.confirmedCount,
+            China_realtime.suspectedCount,
+            China_realtime.curedCount,
+            China_realtime.deadCount,
+    ]
+    results = session.query(*sel).order_by(China_realtime.confirmedCount.desc()).all()
 
+    cpList = []
+    for x in results:
+        table = {}
+        table["province"] = x[0]
+        table["confirmed"] = x[1]
+        table["suspected"] = x[2]
+        table["dead"] = x[3]
+        table["cured"] = x[4]
+        cpList.append(table)
+        
+        session.close()
 
-
-
+    return jsonify(list(cpList))
 
 if __name__ == '__main__':
     app.run(debug=True)
