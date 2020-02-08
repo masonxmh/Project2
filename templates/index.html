@@ -71,29 +71,29 @@
     <!--Normally these medium columns go full wide on small screen sizes-->
             <!-- <div class="row row-cols-1 row-cols-md-4"> -->
             <div class="row">
-                <div class = "card-group w-100"> <!--card-deck is used separate cards/card group make it together-->
-                    <div class="col-sm">
+                <div class = "card-group w-100" id = "card-group"> <!--card-deck is used separate cards/card group make it together-->
+                    <div class="col">
                         <div class="card text-white bg-danger">
-                            <div class="card-header" >Total Confirmed</div>
-                            <div class="card-body"></div>
+                            <div class="card-header" id="card-header" >Total Confirmed</div>
+                            <div class="card-body" id="card-body"></div>
                         </div>
                     </div>
-                    <div class="col-sm">
+                    <div class="col">
                         <div class="card text-white bg-warning" >
-                            <div class="card-header" >Total Suspected</div>
-                            <div class="card-body"></div>
+                            <div class="card-header" id="card-header">Total Suspected</div>
+                            <div class="card-body" id="card-body"></div>
                         </div>
                     </div>
-                    <div class="col-sm">
+                    <div class="col">
                         <div class="card text-white bg-secondary">
-                            <div class="card-header" >Total Dead</div>
-                            <div class="card-body"></div>
+                            <div class="card-header" id="card-header" >Total Dead</div>
+                            <div class="card-body" id="card-body"></div>
                         </div>
                     </div>
-                    <div class="col-sm">
+                    <div class="col">
                         <div class="card text-white bg-success">
-                            <div class="card-header">Total Recovered</div>
-                            <div class="card-body"></div>
+                            <div class="card-header" id="card-header">Total Recovered</div>
+                            <div class="card-body" id="card-body"></div>
                         </div>
                 </div>
             </div> <!--card deck-->
@@ -144,14 +144,29 @@
                     </div>
                 </div> <!--col-9-row-->
                 <div class=info-container>
-                    <div class="row">
+                    <div class="row" id="info-row">
                         <div class = "card-group w-100">
-                        <div class="col-6">
-                            
-                        </div>
-                        <div class="col-6">
-                            <h1>gird2</h1>
-                        </div>
+                            <div class="col" id="col-bottom">
+                                <div class="card border-light" style="max-width: 20rem;">
+                                    <!-- <div class="card-header">Header</div> -->
+                                    <div class="card-body" id="bot-cardbody">
+                                    <h6 class="card-title">Last Updated at </h6>
+                                    <p class="card-text" style="font-size:24px; text-align:center;color:white">2/7/2020, 7:17PM</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col" id="col-bottom">
+                                <div class="card border-light" style="max-width: 20rem;">
+                                    <!-- <div class="card-header">Header</div> -->
+                                    <div class="card-body"  id="bot-cardbody">
+                                    <h6 class="card-title">Data source</h6>
+                                    <!-- <p class="card-text">“https://ncov.dxy.cn/ncovh5/view/pneumonia”</p> -->
+                                    <a href="https://ncov.dxy.cn/ncovh5/view/pneumonia" class="">https://ncov.dxy.cn/ncovh5/view/pneumonia</a>
+                                    <br>
+                                    <a href="https://en.wikipedia.org/wiki/Timeline_of_the_2019%E2%80%9320_Wuhan_coronavirus_outbreak" class="">https://en.wikipedia.org/wiki/Timeline_of_the_2019</a>
+                                    </div>
+                                </div>
+                            </div>
                         </div><!--card-->
                     </div>
                 </div> <!--info container-->
@@ -177,17 +192,3 @@
 </html>
 
 
-       
-   <!-- <div id="table-area" class="" style="max-width: 100%;position: absolute;">
-       <table id = "world-table" class="" >
-                            <thead class="table-active">
-                                <tr style="font-weight: bold;font-size:12px; text-align: center;">
-                                    <th class ="table-head ">COUNTRY</th>
-                                    <th class ="table-head">CONFIRMED</th>
-                                    <th class ="table-head">SUSPECTED</th>
-                                    <th class ="table-head">DEAD</th>
-                                    <th class ="table-head">CURED</th>
-                                </tr>
-                            </thead>
-                            <tbody style="text-align: center;"></tbody>
-                        </table>

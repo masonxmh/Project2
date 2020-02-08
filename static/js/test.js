@@ -2,7 +2,7 @@
 d3.json("/test").then(function(tdata){
     // console.log(testData);
     console.log(tdata);
-    var deck = d3.select(".card-group").selectAll(".card-body");
+    var deck = d3.select("#card-group").selectAll(".card-body");
     deck.data(tdata[0])
             .append("h4")
             .classed("card-title",true)
