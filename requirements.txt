@@ -1,5 +1,4 @@
 beautifulsoup4==4.8.0
-collections
 Click==7.0
 dash==1.9.0
 dash-core-components==1.8.0
