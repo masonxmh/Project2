@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Landing Page</title>
+  <!-- Bring in our bootstrap stylesheet -->
+  <link rel="stylesheet" href="../static/css/bootstrap/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="../static/js/bootstrap/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  
+  <!-- plotly -->
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  
+  <!-- Our CSS -->
+  <link rel="stylesheet" type="text/css" href="../static/css/readmore.css">
+  <!-- D3 JavaScript -->
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> -->
+</head>
+
+
+
+<body>
+    <!-- brand and toggle navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <strong><a class="navbar-brand" href="index.html">Coronavirus Dashboard</a></strong>
+        <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" 
+        data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" 
+        aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarColor01">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Global Map</a>
+                </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="china.html">Cases in China</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="data.html">Forecast and Comparison</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="death_age.html">Detailed Analysis</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="current_china.html">Data</a>
+                    </li>
+            </ul>
+        </div>
+    </nav>   
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-8">
+                <div style="width: 100%;height:1200px;position: relative;">
+                    <hr>
+                    <h4>Comparison between SARS and ConV</h4>
+                    <hr>
+                    <div id="plot" style="width: 85%;height:58%"></div>
+                    
+                    <div class="sars vs ncov">
+                        According to health experts, the continued spread of Coronavirus is "more infectious" but less severe than the SARS epidemic
+                            in late 2002, a </br>coronavirus named SARS erupted in southern China, causing severe pneumonia that rapidly spread to other countries. 
+                            It infected more than </br>8,000 people and killed 774 -- and then it disappeared.</br><hr>
+                            In 2012, another coronavirus dubbed MERS began sickening people in Saudi Arabia. It’s still hanging around, causing small numbers of</br>
+                             infections each year. The World Health Organization has counted nearly 2,500 cases of MERS in the Middle East and beyond, and more than</br> 
+                             850 deaths.
+                            </br><span id="dots1">...</span><span id="more1"> <hr>However, it took eight months for SARS to spread to more than 8,000 people. The Wuhan coronavirus infected over 20,000
+                              people in</br> about five weeks.We’ve known about this particular virus shortly after a cluster of severe pneumonia cases were reported on New Year’s </br>
+                              Eve in Wuhan, which is in the Hubei Province of China. On January 9, virologists and other public health researchers identified the strain as a </br>
+                              novel coronavirus, which was tied to a specific “wet market” in the city of Wuhan where they sell fish and other live animals.
+                              <hr>
+                              Until now, the new 2019 coronavirus has been spreaded to 25 countries. The disease is spreading quickly. China’s health minister, Ma Xiaowei,</br>
+                            told reporters last month that there is evidence it’s already mutated into a stronger variation that is able to spread more easily among humans. </br>
+                            World health officials know the respiratory disease is capable of spreading through human-to-human contact, droplets carried through sneezing </br>
+                            and coughing, and germs left on inanimate objects. The illness is cable of spreading before symptoms show, and about 20% of patients become </br>
+                            severely ill, leading to pneumonia and respiratory failure, health officials say.
+                            </span>
+                             <button onclick="myFunction()" id="myBtn1">Read more</button>
+                            <hr>
+                            <hr>
+                            <hr>
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div id="visualizations">
+                    <hr>
+                    <h4>Forecasts</h4>
+                    <div class="forecast_text">
+    
+                            As for forecasting, based on the data we have now about the novel 2019 coronavirus, which outbreaked in Wuhan, China,
+                            we did a forecast for the next 10 days using the ARIMA model in R to forecast the daily confirmed cases in Hubei,China 
+                            (which is the province Wuhan city is located), 
+                            <span id="dots2">...</span><span id="more2">
+                            as well as China
+                            as the country where the new virus has been confirmed in the first place. <hr>As the original data is not stationary, our forecast was based on 
+                            the first difference of the original data in order to achieve stationarity.<hr>
+                            According to our forecast, there will be no sharp increase or decrease in the number of daily confirmed cases in Hubei and China
+                            as a whole. However, there are still several observable peaks in terms of numbers. Also, we see no trends of decreasing in numbers.
+                            This way, we could predict that the coronavirus will still be a serious case, the number of confirmed cases will still be increasing in China but at
+                            a slower rate comparing to the past days since the 2019 Coronavirus outbreaks.
+                        </span>
+                            <button onclick="myFunction2()" id="myBtn2">Read more</button>
+                        
+                    </div>
+                    <hr>
+                    <a href=""><img src="../static/Forecast China.png" class="img-responsive" alt="Forecast China" height = "350" width="550"></a>
+                    <hr>
+                    <a href=""><img src="../static/Forecast Hubei.png" class="img-responsive" alt="Forecast Hubei" height = "350" width="550"></a>
+                    
+                </div>
+        </div>
+    </div>
+        
+
+
+    
+    
+
+
+ <!-- Footer -->
+    <footer>
+        <div class="footer navbar-fixed-bottom">&copy; Copyright Binqian Gao, Mohan Xing, Peirang Xu, Vicky Zhang 2020. All Rights Reserved.</div>
+        <!-- Our JavaScript -->
+        <script type="text/javascript" src="../static/js/plotly.js"></script>
+        <script type="text/javascript" src="../static/js/readmore.js"></script>
+    </footer>
+</body>
+</html>
+
+
+       
