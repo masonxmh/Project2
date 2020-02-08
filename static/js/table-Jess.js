@@ -1,9 +1,11 @@
 
  d3.json("/China_Data").then(function(data) {
 
-    var  confirmed_pair=Object.entries(data.confirmed);
-    var  recovered_pair = Object.entries(data.recovered)
-    var  Datearray=data.Date;
+    var  confirmed_pair=Object.entries(data[0].confirmed);
+    var  recovered_pair = Object.entries(data[0].recovered);
+    var  Datearray=(data[0].Date);
+
+    
 
         var recovered_date_sum=[];
         var confirm_date_sum_else=[];

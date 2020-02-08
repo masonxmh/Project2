@@ -18,21 +18,33 @@ Plotly.d3.json("/china/death/dex", function (err, data) {
     x: age,
     y: female_death,
     type: 'scatter',
-    name: 'Female'
+    name: 'Female',
+    line:{
+      color:"red",
+      width:2
+  }
   };
   
   var trace2 = {
     x: age,
     y: male_death,
     type: 'scatter',
-    name: 'Male'
+    name: 'Male',
+    line:{
+      color:"blue",
+      width:2
+  }
   };
 
   var trace3 = {
     x: age,
     y: total_death,
     type: 'scatter',
-    name: 'Total Death Count'
+    name: 'Total Death Count',
+    line:{
+      color:"orange",
+      width:2
+  }
   };
 
   var layout = {

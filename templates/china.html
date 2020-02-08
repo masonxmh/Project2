@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Coronavirus in China Mainland</title>
     <!-- Bring in our bootstrap stylesheet -->
@@ -16,6 +16,8 @@
     <!-- Our CSS -->
     <!-- <link rel="stylesheet" type="text/css" href="../static/css/style.css"> -->
     <link rel="stylesheet" type="text/css" href="../static/css/jstyle.css">
+    <!-- <link rel="stylesheet" type="text/css" href="../static/css/style.css"> -->
+    
     <!-- D3 JavaScript -->
     <script src="https://d3js.org/d3.v5.min.js"></script>
     <!-- <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> -->
@@ -24,6 +26,10 @@
     <!--Jessica-->
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script> -->
+    <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script> -->
+
     <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script> -->
     
   </head>
@@ -31,95 +37,106 @@
 <body>
 
 <!-- brand and toggle navbar -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-  <strong><a class="navbar-brand" href="index.html">Coronavirus Dashboard</a></strong>
-  <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" 
-  data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" 
-  aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-  </button>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <strong><a class="navbar-brand" href="index.html">Coronavirus Dashboard</a></strong>
+    <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" 
+    data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" 
+    aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
 
-  <div class="collapse navbar-collapse" id="navbarColor01">
-      <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
-              <a class="nav-link" href="index.html">Global Map</a>
-          </li>
-              <li class="nav-item">
-                  <a class="nav-link" href="china.html">Cases in China</a>
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link" href="forecast.html">Forecast and Comparison</a>
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link" href="death_age.html">Detailed Analysis</a>
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link" href="current_china.html">Data</a>
-              </li>
-      </ul>
-  </div>
-</nav>   
+    <div class="collapse navbar-collapse" id="navbarColor01">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="index.html">Global Map</a>
+            </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="china.html">Cases in China</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="forecast.html">Forecast and Comparison</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="death_age.html">Detailed Analysis</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="current_china.html">Data</a>
+                </li>
+        </ul>
+    </div>
+  </nav>   
 
 <!-- JESS' CODE START HERE -->
   
 
-    <div class="container-fluid">    
-          <div id="bubbleplots">
-            <div class="bubbleplot" data-num="0">              
-                    <div class="row row-eq-height">
-                        <div class="col-xl">
-                          <h1>Selected Province</h1>
-                              <select class="provincedata" id="mySelect">
-                                <option value="" selected disabled hidden>Choose here</option>
-                              </select> 
-                        </div>
-                        <div class="col-lg-3">
-                           <div class="card text-white bg-danger" >
-                              <div class="card-header" style="font-size: 40px" >Total Confirmed</div>
-                              <div class="card-body" style="font-size: 40px; margin-bottom: 10%;" id="total_confirmed"></div>                            
-                          </div>
-                        </div>
-                        <div class="col-lg-3">
-                          <div class="card text-white bg-secondary">
-                              <div class="card-header" style="font-size: 40px" >Total Dead</div>
-                              <div class="card-body" style="font-size: 40px; margin-bottom: 10%;" id="total_death"></div>
-                          </div>
-                        </div>
-                        <div class="col-lg-3">
-                          <div class="card text-white bg-warning">
-                              <div class="card-header"style="font-size: 40px">Weekly Increase Rate</div>
-                              <div class="card-body" style="font-size: 40px; margin-bottom: 10%;" id="w_rate"></div>
-                          </div>
-                        </div>
-                    </div>
-                    <div class="row content row-eq-height}">
-                      <div class="col-sm-4">
-                        <h3 style="color:orange;  margin: 1">Confirmed cases in Hubei increase exponentially.</h3>
-                        <h3 style ="color:ghostwhite; margin: 1">Confirmed cases in all other provinces increase, but not exponentially.</h3>                      
-                           <div class= "container" id="myjDiv2" style ="margin-bottom: 25px"></div> 
-                          <div class= "container" id="myjDiv" style ="margin-bottom: 25px"></div> 
-                        </div>
-                      <div class="col-sm-8">
-                        <div class="container-fluid">                              
-                          <br><br><br>
-                          <div class="plot" id="plotdiv" ></div>
-                          <br><br>
-                          <div class="plot" id="plotbar" ></div>
-                        </div>
-                      </div>
-                    </div>
-            </div>
+  <div class="container-fluid">    
+      <div id="bubbleplots">
+        <div class="bubbleplot" data-num="0">              
+          <div class="row row-height">
+
+              <div class="col"><br>
+                <h3>Selected Province</h3>
+                    <select class="provincedata" id="mySelect">
+                      <option value="" selected disabled hidden>Choose here</option>
+                    </select> 
+              </div>
+              <div class="col">
+                  <div class="card text-white bg-danger" >
+                    <div class="card-header" style="font-size: 20px" >Total Confirmed</div>
+                    <div class="card-body" style="font-size: 20px;" id="total_confirmed"></div>                            
+                </div>
+              </div>
+              <div class="col">
+                <div class="card text-white bg-secondary">
+                    <div class="card-header" style="font-size: 20px" >Total Dead</div>
+                    <div class="card-body" style="font-size: 20px; " id="total_death"></div>
+                </div>
+              </div>
+              <div class="col">
+                <div class="card text-white bg-warning">
+                    <div class="card-header"style="font-size: 20px">Weekly Increase Rate</div>
+                    <div class="card-body" style="font-size: 20px;" id="w_rate"></div>
+                </div>
+              </div>
           </div>
+
+
+
+
+
+              <div class="row row-plot">
+                  <div class="col-4">
+                    <div>
+                      <h6 style="color:orange;  margin: 1">Confirmed cases in Hubei increase exponentially.</h3>
+                      <h6 style ="color:ghostwhite; margin: 1">Confirmed cases in all other provinces increase, but not exponentially.</h3>
+                    </div>               
+                  
+                      <div  id="myjDiv2" style ="margin-bottom: 0px"></div> 
+                      <div  id="myjDiv" style ="margin-bottom: 0px"></div> 
+                  </div>
+
+
+                  <div class="col-8">
+                    <div class="container-plot">                              
+                      <br><br><br>
+                      <div class="plot" id="plotdiv" ></div>
+                      <br><br>
+                      <div class="plot" id="plotbar" ></div>
+                    </div>
+                  </div>
+              </div>
+        </div>
       </div>
-
-
-
+  </div>
   
   
   
 
 
 
+
+
+      <!-- <script src="https://d3js.org/d3.v5.min.js"></script> -->
 <footer>
   <div class="footer navbar-fixed-bottom">&copy; Copyright Binqian Gao, Mohan Xing, Peirang Xu, Vicky Zhang 2020. All Rights Reserved.</div>
   <!-- <script src="../static/js/test.js"></script> -->

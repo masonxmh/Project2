@@ -1,25 +1,25 @@
 
 d3.json("/China_Data").then(function(data) {
-  
-     var new_recovered_pair=Object.entries(data.new_recovered);
-     var new_confirmed_pair=Object.entries(data.new_confirmed);
-     var new_death_pair = Object.entries(data.new_death);
-     var confirmed_pair=Object.entries(data.confirmed);
-     var death_pair=Object.entries(data.death);
-     var recovered_pair = Object.entries(data.recovered);
 
-      
-     
+     var new_recovered_pair=Object.entries(data[0].new_recovered);
+     var new_confirmed_pair=Object.entries(data[0].new_confirmed);
+     var new_death_pair = Object.entries(data[0].new_death);
+     var confirmed_pair=Object.entries(data[0].confirmed);
+     var death_pair=Object.entries(data[0].death);
+     var recovered_pair = Object.entries(data[0].recovered);
+
+     console.log(data[0].Province);
+  
      var innerContainer = document.querySelector('[data-num="0"]'),
       provinceSelector = innerContainer.querySelector('.provincedata'),
-      listofProvince = data.Province,
-      Datearray=data.Date;
+      listofProvince = data[0].Province,
+      Datearray=data[0].Date;
         
-  setBubblePlot('Hubei');
-  setPlot('Hubei');
+      setBubblePlot('Hubei');
+      setPlot('Hubei');
   
 
-  function getyData(chosenProvince) {
+    function getyData(chosenProvince) {
     for (var i = 0 ; i < new_confirmed_pair.length ; i++){
       if ( new_confirmed_pair[i][0] === chosenProvince) {
         y_newc=new_confirmed_pair[i][1];  
@@ -112,7 +112,7 @@ d3.json("/China_Data").then(function(data) {
         text: chosenProvince + ' Daily Situation',
         font: {
           family: 'sans-serif',
-          size: 30,
+          size: 20,
           color: '#ffffff'
         }
       },
@@ -140,7 +140,7 @@ d3.json("/China_Data").then(function(data) {
         traceorder: 'normal',
         font: {
           family: 'sans-serif',
-          size: 35,
+          size: 20,
           color: '#ffffff'
         }
         // bgcolor: '#E2E2E2'
@@ -193,7 +193,7 @@ d3.json("/China_Data").then(function(data) {
         text: chosenProvince + " Situation <br>(accumulation) ",
         font: {
           family: 'sans-serif',
-          size: 30,
+          size: 20,
           color: '#ffffff'
         }
       },
@@ -228,6 +228,7 @@ d3.json("/China_Data").then(function(data) {
         // bordercolor: 'black',
         // borderwidth: 4
       },
+      autosize:true
     };
 
     Plotly.newPlot('plotbar', data, layout);
