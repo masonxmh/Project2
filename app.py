@@ -24,8 +24,8 @@ app = Flask(__name__)
 #################################################
 # Database Setup
 #################################################
-##app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-#app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///wuhan_pneumonia.sqlite"
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///wuhan_pneumonia.sqlite"
 
 engine = create_engine("sqlite:///wuhan_pneumonia.sqlite")
 # reflect an existing database into a new model
